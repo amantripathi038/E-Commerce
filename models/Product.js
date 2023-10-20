@@ -14,10 +14,19 @@ const productSchema = mongoose.Schema({
         type: String
     },
     price: {
-        type: String
+        type: Number,
+        required: [true, "Please provide a valid price"],
+        min: 1
     },
     availableQuantity: {
-        type: String
+        type: Number,
+        required: [true, "Please provide valid quantity"],
+        validate: {
+            validator: function (value) {
+                return value >= 0;
+            },
+            message: "Quantity must not be less than 0"
+        }
     }
 });
 

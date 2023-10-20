@@ -2,6 +2,7 @@ const dotenv = require('dotenv');
 const express = require('express');
 const morgan = require('morgan');
 const cors = require('cors');
+const AppError = require('./utils/appError');
 
 const globalErrorHandler = require('./controllers/errorController');
 const routers = require('./routers');
